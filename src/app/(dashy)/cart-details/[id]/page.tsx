@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Button } from "@/components/ui/button"
 
-function Page() {
+function Page({params}:{params:{id:string}}) {
     return (
         <div className={'flex p-10 items-center justify-center '}>
             <div className={'md:grid md:grid-cols-2 md:space-x-40'}>
 
                 <div className={'flex flex-col p-5 '}>
-                Item Image....
+                    {params.id}
                 </div>
 
 

@@ -4,9 +4,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React, {ReactNode} from "react";
 import Home from "@/app/page";
-
-
-
+import {
+    ClerkProvider,
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton
+} from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,7 +21,6 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 
-
 }: Readonly<{
   children: React.ReactNode;
 
@@ -25,11 +28,14 @@ export default function RootLayout({
 }>) {
 
   return (
+      <ClerkProvider>
+
+
     <html lang="en">
       <body className={inter.className}>
-      {/*<h4 className={'flex text-5xl p-10 font-bold  items-center justify-center'}>Welcome , to the E-commerce Kingdom!!</h4>*/}
-         {children}
+          {children}
       </body>
     </html>
+      </ClerkProvider>
   );
 }
